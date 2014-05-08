@@ -1,11 +1,14 @@
-import play.Project._
 import scala.Some
 import xerial.sbt.Sonatype.SonatypeKeys._
 import xerial.sbt.Sonatype._
 
 name := "play2-elasticsearch"
 
-version := "0.8-SNAPSHOT"
+version := "0.83-SNAPSHOT"
+
+lazy val root = (project in file(".")).enablePlugins(PlayJava)
+
+scalaVersion := "2.11.0"
 
 libraryDependencies ++= Seq(
   javaCore,
@@ -13,8 +16,6 @@ libraryDependencies ++= Seq(
   "org.elasticsearch" % "elasticsearch" % "0.90.12",
   "org.apache.commons" % "commons-lang3" % "3.1"
 )
-
-play.Project.playJavaSettings
 
 sonatypeSettings
 
